@@ -1,0 +1,40 @@
+let stocks = {
+	Crust: ["Hand Tossed", "Handmade Pan", "Crunchy Thin Crust"],
+	Size: [6,12,14,18],
+	Quantity: [1,2,3,4,5,6,7,8,9,10],
+	Sauce: ["Robust Inspired Tomato Sauce", "Hearty Marinara Sauce", "Honey BBQ Sauce", "Garlic Parmesan Sauce", "Alfredo Sauce", "Ranch"],
+	Amount: ["Light", "Normal", "Extra"],
+	Cheese: ["Yes", "No"],
+	MeatToppings: ["Ham", "Beef", "Salami", "Pepperoni", "Italian Sausage", "Premium Chicken", "Bacon", "Philly Steak", "Anchovies"],
+	VeggieMoreToppings: ["Buffalo Sauce", "Pineapple", "Garlic", "Jalapeno Peppers", "Onions", "Banana Peppers", "Diced Tomatoes", "Black Olives", "Mushrooms", "Shredded Provolone Cheese", "Cheddar Cheese Blend", "Green Peppers", "Spinach", "Feta Cheese", "Shredded Parmesan Asiago"],
+	SpecialInstructions:{Bake: ["Normal Bake", "Well Done"],
+		             Cut: ["Pie Cut", "Square Cut", "Uncut"],
+		             Seasoning: ["Garlic-Seasoned Crust", "No Garlic-Seasoned Crust"]
+	                    },
+	DippingSauce: ["Garlic Dipping Cup", "Ranch Dipping Sauce", "Marinara Sauce Dipping Cup"]
+}
+
+
+
+
+// intial step need to start the oven and give a timer that it reaches the certain temparture give out and alarm make sure the timer is more than 30 seconds so all other preparation steps can happen 
+// Announce that the oven has reached the temperature
+// as every second goes by the temperature needs to be rising use an formula that keeps adding 30 degrees is degrees greater than 425 turn the false to true
+// can easily reassign the Oven
+let staff = {
+	order:{placed:true, canceled:false},
+	Oventempature:[220,250]
+}
+console.log(true === staff.Oven.on)
+// Ask the user for all the toppings they wanted then start the process of building the pizza
+// First the Dough needs to be prep 
+// After the dough is made put the chosen sauce on top of the pizza make sure to spread it
+//
+let pizzaTracker = (time, work) => {
+	return new Promise((resolve reject)=> 
+		if(
+
+
+
+
+
