@@ -11,7 +11,14 @@
 // First thing that needs to be done is print out the order which is inside the variable order one then start building
 // First thing that needs to be done is console starting the order 
 // We then console.log The start temperature of the oven and then wait for a 20 seconds then execute the function 
-// while the function waits to be executed run 
+// while the function waits to be executed run
+// Testing code for the function that heats the oven 
+/*
+console.log("Normal Bake final temp:")
+tempIncrease("Normal Bake")
+console.log("Well Done temp: ")
+tempIncrease("Well Done")
+ */
 let oven = {
 	order:{placed:true, canceled:false},
 	ovenTemp:[220,250]
@@ -52,10 +59,7 @@ const tempIncrease = (bake) =>{  // temperature increase function this will be r
 	}
 	console.log("Final temp: " + temp)
 }
-console.log("Normal Bake final temp:")
-tempIncrease("Normal Bake")
-console.log("Well Done temp: ")
-tempIncrease("Well Done")
+
 let pizzaTracker = (time, work) => {
 	return new Promise((resolve, reject)=> {
 		if(oven.order.placed) {
@@ -69,24 +73,65 @@ let pizzaTracker = (time, work) => {
 	})
 }
 // this line producing the error we will just catch it but we will not handle it at the time till later because it is a very easy fix just need to get rid of the extra brackets
-console.log("Turnng oven at " + oven.ovenTemp[0])
-
+console.log("First Event: Turnng oven at " + oven.ovenTemp[0])
+// running on my first thread 
 pizzaTracker(0000,()=>
-	console.log("Following ordered recieved " + orderOne)
+	console.log("Second Event that needs to happen: Following ordered recieved " + orderOne)
 )
 .then(() => {
-	return pizzaTracker(20000,()=>{
-		tempIncrease("Normal Bake")
+	return pizzaTracker(1000,()=>{
+		console.log("Third Event needs to happen: Normal Bake")
 	})
 })
 .then(() => {
-	return pizzaTracker(1000,()=> {
-		console.log("preparing " + stocks.Crust[0])
+	return pizzaTracker(2000,()=> {
+		console.log("Fifth Event: preparing " + stocks.Crust[0] + "dough")
 	})
 })
-.then(() => {
-	return pizzaTracker
+.then(()=> {
+	return pizzaTracker(3000,()=> {
+		console.log(`6th Event: Adding  -> ${stocks.Amount[0]} ${stocks.Sauce[1]} pizza sauce`)
+	})
+})
+.then(()=> {
+	return pizzaTracker(3000,()=> {
+		console.log(`Adding ${stocks.Amount[1]} Cheese ${stocks.Cheese[0]}`)
+	})
+})
+.then(()=> {
+	return pizzaTracker(3000,()=> {
+		console.log(`Adding the following toppings -> ${stocks.MeatToppings[0]}, ${stocks.MeatToppings[3]}, ${stocks.VeggieMoreToppings[1]}`)
+	})
+})
 .catch((error) =>{
 	console.log(`${error} has been caught`)
 })
-.finally(()=> console.log("Staff is tired and we closing for today please come back tomorrow"))
+.finally(()=> console.log("Come get your pizza"))
+
+let ovenTemp = (time, work) => {
+	return new Promise((resolve) => {
+		console.log("starting Oven");
+		setTimeout(() =>{
+			resolve(work())
+		}, time)
+	})
+
+}
+// second thread 
+ovenTemp(2000, ()=> {
+	console.log("Fourth Event: Starting oven")
+})
+.then(()=> {
+	return ovenTemp(12000,()=> {
+		tempIncrease("Normal Bake")
+	})
+})
+
+
+
+
+
+// third thread that takes care of handling all user input when running the small events like adding the toppings, adding the cheese, place the pizza in the oven 
+// whenever more work needs to be done while other things are going on just make a new thread 
+//
+
