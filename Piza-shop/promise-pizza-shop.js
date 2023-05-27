@@ -128,7 +128,8 @@ ovenTemp(2000, ()=> {
 })
 
 
-
+// create a new function that keeps time of the whole application without lossing track of time and returns the total time for the application to run if the application 
+// if the function does not 
 
 
 // third thread that takes care of handling all user input when running the small events like adding the toppings, adding the cheese, place the pizza in the oven 
